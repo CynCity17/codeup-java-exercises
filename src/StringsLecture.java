@@ -9,9 +9,9 @@ public class StringsLecture {
 //
 //        String password = "password";
 //        System.out.println(password.length() > 8);
-        Sanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Would you like to continue? [y/N]");
-        String.userChoice = input.nextLine();
+        String userChoice = input.nextLine();
         String message2 = "This is my message";
 //        int position = message2.indexOf("my");
         System.out.println(message2.trim());
