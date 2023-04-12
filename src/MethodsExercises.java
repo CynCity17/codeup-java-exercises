@@ -7,8 +7,12 @@ public class MethodsExercises {
         System.out.println(multiplication(6, 4));
         System.out.println(division(20, 4));
         System.out.println(modulus(10, 7));
-        int userInput = getInteger(1, 10);
+        //int userInput = getInteger(1, 10);
 //        System.out.println(getInteger(1, 10));
+        long factorial = getFactorial(userInput);
+        System.out.printf("Factorial => %d%n", factorial);
+        int diceSides = getDiceSide();
+        System.out.println(rollDice(diceSides));
 
 
     }
@@ -33,13 +37,13 @@ public class MethodsExercises {
         return mod;
     }
     public static int getInteger(int min, int max) {
-        System.out.print("Enter a number between 1 and 10: ");
+        System.out.print("Enter a number between " + min + "and" + max + ":");
         Scanner scanner = new Scanner(System.in);
         int userInput = scanner.nextInt();
         if (userInput >= min && userInput <= max) {
             return userInput; // valid input, return the value
-        } else {
-            System.out.println("Invalid input. Please enter a number between 1 and 10."); // not necessarily needed as it will bring you back to the question in the next line, but nothing wrong with putting this line in there
+        } //else {
+//            System.out.println("Invalid input. Please enter a number between 1 and 10."); // not necessarily needed as it will bring you back to the question in the next line, but nothing wrong with putting this line in there
             return getInteger(min, max); // recursive call to prompt again, brings you back to the original question until the input is valid
 
 //      Sure! Let's go through the implementation of the getInteger method step by step:
@@ -56,9 +60,9 @@ public class MethodsExercises {
 //
 //      The recursive call to getInteger repeats the process of prompting the user for input, checking if it's within the range, and repeating the prompt if it's not, until a valid input is entered.
         }
-        public static int getFactorial(int num){
-            int result = 1; //start with 1 since its multiplication, and zero will always return 0
-            for (int i = 1; i <= num; i++){
+        public static long getFactorial(long userInput){
+            long result = 1; //start with 1 since its multiplication, and zero will always return 0
+            for (long i = 1; i <= userInput; i++){
                 result *= i;
             }
             return result;
@@ -78,9 +82,9 @@ public class MethodsExercises {
             if (userChoice.equalsIgnoreCase("y")){
                 int result1 = randomNumber(1, sides);
                 int result2 = randomNumber(1, sides);
-                return "The first dice rolled a " + result1 + ". The second dice rolled a " + result2 + ". The total is " + (result1 + result2);
+                return "The first dice rolled a " + result1 + ". The second dice rolled a " + result2 + ". The total is " + (result1 + result2) + ".";
             }
-            return "";
+            return "Fine. Go away.";
         }
 
 
