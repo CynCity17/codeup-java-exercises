@@ -79,6 +79,22 @@ public class Input {
         System.out.println(prompt);
         return scanner.nextDouble();
     }
+
+    //Code from student that could be used in util
+    public static int getRandomInt(){
+        int randomNumber = (int) (Math.random() * 100) + 1;
+        System.out.println("This method gives you a random number between 1 and 100.");
+        return randomNumber;
+    }
+
+    //Code from student that could be used in util
+    public static int getRandomInt(int min, int max) {
+        System.out.printf("Get a number between %d, and %d.%n", min, max);
+        int randomNumber = (int) (Math.random() * max) + min;
+        return randomNumber;
+    }
+
+    //Code added by Javier to prevent .....
     public void getGhost(){
         System.out.println("");
         String ghost = scanner.nextLine();
