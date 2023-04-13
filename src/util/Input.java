@@ -4,26 +4,42 @@ import java.util.Scanner;
 
 public class Input {
     // Declare a private field named scanner of type Scanner
+    //Every Input object should have a scanner
     private Scanner scanner;
 
     // Constructor for Input class
     // When an instance of this class is created, a new instance of Scanner is also created and assigned to the scanner field
+    //Everytime we make a new Input object it will have a new scanner constructed per object.
     public Input() {
-        scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
     }
 
     // Method to get a string input from the user
     public String getString() {
-        System.out.print("Enter a string: ");
+        System.out.print("Enter a string:");
         return scanner.nextLine();
     }
 
-    public boolean yesNo() {
-        System.out.println("Would you like to continue? [y/N]");
-        String input = scanner.nextLine().toLowerCase();
-        return input.equals("y") || input.equals("yes");
+    //Overloading an object to be able to put in your own prompt
+    public String getString(String prompt){
+        System.out.println(prompt);
+        return scanner.nextLine();
     }
 
+    //Method to get yes/no from user
+    public boolean yesNo() {
+        System.out.println("Would you like to continue? [y/N]");
+        String input = scanner.nextLine();
+        return input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes");
+//        return scanner.nextLine().equalsIgnoreCase("y") || scanner.nextLine().equalsIgnoreCase("yes"); <--- this was class example but was causing hang time because it's running scanner.nextLine AGAIN causing the hang. Could be written without the scanner inline like the above code
+    }
+
+    //Overloading yesNo takes an input and return true or false
+    public boolean yesNo(String input){
+        return input.equals("y") || input.equalsIgnoreCase("yes");
+    }
+
+    //Method for getting an integer between an certain range of numbers
     public int getInt(int min, int max) {
         System.out.print("Enter a number between " + min + " and " + max + ":");
         int input = scanner.nextInt();
@@ -34,19 +50,18 @@ public class Input {
     }
 
     public int getInt() {
-        System.out.print("Enter a number:");
-        int input = scanner.nextInt();
-        if (!scanner.hasNextInt()) {
-            System.out.print("Invalid input. Please enter an integer: ");
-            scanner.next();
-        } else {
-            scanner.nextLine(); // Consume newline character
-        }
-        return input;
+        System.out.println("Enter an integer:");
+        return scanner.nextInt();
+    }
+
+    //Overloading the method to have custom prompt
+    public int getInt(String prompt){
+        System.out.println(prompt);
+        return scanner.nextInt();
     }
 
     public double getDouble(double min, double max){
-        System.out.print("Enter a decimal number between " + min + " and " + max + ":");
+        System.out.printf("Enter a decimal number between %.2f and %.2f:", min, max);
         double input = scanner.nextDouble();
         if (input >= min && input <= max) {
             return input; // valid input, return the value
@@ -55,14 +70,17 @@ public class Input {
     }
 
     public double getDouble(){
-        System.out.print("Enter a decimal number:");
-        double input = scanner.nextDouble();
-        if (!scanner.hasNextDouble()) {
-            System.out.print("Invalid input. Please enter an decimal number: ");
-            scanner.next();
-        } else {
-            scanner.nextLine(); // Consume newline character
-        }
-        return input;
+        System.out.println("Enter a number: (decimals allowed):");
+        return scanner.nextDouble();
+    }
+
+    //Overloading to have custom prompt
+    public double getDouble(String prompt){
+        System.out.println(prompt);
+        return scanner.nextDouble();
+    }
+    public void getGhost(){
+        System.out.println("");
+        String ghost = scanner.nextLine();
     }
 }
