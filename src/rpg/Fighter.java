@@ -1,6 +1,9 @@
 package rpg;
 
 public class Fighter {
+
+    public static int totalFighters;
+
     //POJO = Plain Old Java Object
     private String name;
     private int hitPoints;
@@ -32,9 +35,10 @@ public class Fighter {
         System.out.printf("%s has  %d hit points and does %d  maximum damage. Armor class is %d.%n", name, hitPoints, maxDamage, armorClass);
     }
     public Fighter(){
-
+        totalFighters++;
     }
     public Fighter(String name, int hitPoints, int maxDamage){
+        totalFighters++;
         this.name = name;
         this.hitPoints = hitPoints;
         this.maxDamage = maxDamage;

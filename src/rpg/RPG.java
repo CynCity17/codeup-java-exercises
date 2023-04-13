@@ -20,6 +20,8 @@ public class RPG {
         int d20roll = D20.rolld20();
         System.out.println(d20roll);
 
+
+
         Animals animals1 = new Animals();
         animals1.setAnimal("Tiger");
         animals1.setName("Stripey");
@@ -35,7 +37,6 @@ public class RPG {
         Animals animals3 = new Animals("Alpaca", "Paco", "bleet");
         animals3.makeNoise();
 
-//        String animalSpeaking = Speech.randomQuote();
-//        System.out.println( + " yells " + animalSpeaking);
+        System.out.println(Fighter.totalFighters);
     }
 }
