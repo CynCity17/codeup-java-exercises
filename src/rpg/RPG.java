@@ -1,6 +1,12 @@
 package rpg;
 
+import java.util.Arrays;
 public class RPG {
+    public static Monster[] addMonster(Monster[] monstersArray, Monster newMonster){
+        Monster[] newMonsterArray = Arrays.copyOf(monstersArray, monstersArray.length + 1);
+        newMonsterArray[newMonsterArray.length-1] = newMonster;
+        return newMonsterArray;
+    }
     public static void main(String[] args) {
         Fighter fighter1 = new Fighter();
         fighter1.setName("Arata");
@@ -38,5 +44,28 @@ public class RPG {
         animals3.makeNoise();
 
         System.out.println(Fighter.totalFighters);
+
+
+        Monster orc = new Monster("Orc", 13, 15, 9);
+        Monster ogre = new Monster("Ogre", 11, 59, 13);
+        Monster blueDragon = new Monster("Blue Dragon", 19, 225, 23);
+
+//        Monster[] monsters = new Monster[3];
+//        monsters[0] = orc;
+//        monsters[1] = ogre;
+//        monsters[2] = blueDragon;
+
+        Monster [] monsters = {orc, ogre, blueDragon};
+
+        Monster cloaker = new Monster("Cloaker", 14, 78, 10);
+       Monster[] newMonsterArray = RPG.addMonster(monsters, cloaker);
+       for(Monster monster : newMonsterArray){
+           System.out.println(monster.getName());
+       }
+
+//        for (Monster monster : monsters){
+//            System.out.printf("%s has %d hit points%n", monster.getName(), monster.getHitPoints());
+//            System.out.println(monster.getName());
+//        }
     }
 }
