@@ -22,10 +22,12 @@ public class Rectangle {
     }
 
     public double getPerimeter(){
+        System.out.println("I'm a rectangle");
         return length*2 + width*2;
     }
 
     public double getArea(){
+        System.out.println("I'm a rectangle");
         return length*width;
     }
 
