@@ -41,6 +41,7 @@ public class Input {
 
     //Method for getting an integer between an certain range of numbers
     public int getInt(int min, int max) {
+
         System.out.print("Enter a number between " + min + " and " + max + ":");
         int input = scanner.nextInt();
         if (input >= min && input <= max) {
