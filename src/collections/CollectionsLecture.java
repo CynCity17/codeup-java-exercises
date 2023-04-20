@@ -39,7 +39,7 @@ public class CollectionsLecture {
 
         // I could add it to a list, like this:
 
-       // ArrayList<Monster> monsterList = new ArrayList<>(Arrays.asList(monsters));
+        ArrayList<Monster> monsterList = new ArrayList<>(Arrays.asList(monsters));
 
         // looping over an array list: same syntax as
         // for an array
@@ -95,7 +95,7 @@ public class CollectionsLecture {
 
         // Sort numerically by creation date
 
-//        languages.sort(Comparator.comparing(CodingLanguage::getCreatedDate));
+        languages.sort(Comparator.comparing(CodingLanguage::getCreatedDate));
 //
 //        for (CodingLanguage language : languages){
 //            System.out.printf("%s was created by %s in %d.%n", language.getName(), language.getCreator(), language.getCreatedDate());
@@ -112,25 +112,25 @@ public class CollectionsLecture {
 
         //To retrieve an item from a HashMap use .get() and pass it the key
 
-        System.out.println(careerWins.get("Gregg Popovich"));
+//        System.out.println(careerWins.get("Gregg Popovich"));
 
         //To replace a value, use .replace()
 
         careerWins.replace("Gregg Popovich", 1367);
         System.out.println(careerWins.get("Gregg Popovich"));
 
-        HashMap<String, Monster> monsterMap = new HashMap<>();
+//        HashMap<String, Monster> monsterMap = new HashMap<>();
 
         //To add multiple entries at once, we can use Map.ofEntries()
 
-//        Map<String, Monster> monsterMap = Map.ofEntries(
-//                entry("Orc", orc),
-//                entry("Blue Dragon", blueDragon),
-//                entry("Ogre", ogre),
-//                entry("Werewolf", werewolf),
-//                entry("Goblin", goblin),
-//                entry("Frost Giant", frostGiant)
-//        );
+        Map<String, Monster> monsterMap = Map.ofEntries(
+                entry("Orc", orc),
+                entry("Blue Dragon", blueDragon),
+                entry("Ogre", ogre),
+                entry("Werewolf", werewolf),
+                entry("Goblin", goblin),
+                entry("Frost Giant", frostGiant)
+        );
         // Map.ofEntries returns an unmodifiable map.
         // This is by design, for performance reasons
         // If I want to be able to modify it,
@@ -141,7 +141,7 @@ public class CollectionsLecture {
         // Now the hashmap is modifiable again
         monsterHashMap.put("Skeleton", new Monster("Skeleton", 13, 13, 5));
 
-        //Looping over a hashmap: Instead, I have to generate sets
+        // Looping over a hashmap: I can have to generate sets
         // and then loop over the sets
 
         // A set is an unordered collection of unique objects
