@@ -16,7 +16,6 @@ public class Input {
 
     // Method to get a string input from the user
     public String getString() {
-        System.out.print("Enter a string:");
         return scanner.nextLine();
     }
 
@@ -41,18 +40,34 @@ public class Input {
 
     //Method for getting an integer between an certain range of numbers
     public int getInt(int min, int max) {
-
-        System.out.print("Enter a number between " + min + " and " + max + ":");
-        int input = scanner.nextInt();
-        if (input >= min && input <= max) {
-            return input; // valid input, return the value
+        System.out.print("Enter a number between " + min + " and " + max + ": ");
+        String userInput = getString();
+        try {
+            Integer.valueOf(userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("You did not enter a valid number. Please try again.");
+            return getInt(min, max);
         }
-        return getInt(min, max);
+        int userNum = Integer.parseInt(userInput);
+        if (userNum >= min && userNum <= max) {
+            return userNum;
+        } else {
+            System.out.println("You did not enter a number between " + min + " and " + max + ". Try again.");
+            return getInt(min, max);
+        }
     }
 
-    public int getInt() {
+    public int getInt(){
         System.out.println("Enter an integer:");
-        return scanner.nextInt();
+        String userInput = getString();
+        try {
+            Integer.valueOf(userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("You did not enter a valid number. Please try again.");
+            return getInt();
+        }
+        int userNum = Integer.parseInt(userInput);
+        return Integer.parseInt(userInput);
     }
 
     //Overloading the method to have custom prompt
@@ -62,17 +77,35 @@ public class Input {
     }
 
     public double getDouble(double min, double max){
-        System.out.printf("Enter a decimal number between %.2f and %.2f:", min, max);
-        double input = scanner.nextDouble();
-        if (input >= min && input <= max) {
-            return input; // valid input, return the value
+        System.out.printf("Enter a number between %.1f and %.1f:", min, max);
+        String userInput = getString();
+        try {
+            Double.valueOf(userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("You did not enter a valid number. Please try again.");
+            return getDouble(min, max);
         }
-        return getDouble(min, max);
+        Double userNum = Double.parseDouble(userInput);
+        if (userNum >= min && userNum <= max) {
+
+            return userNum;
+        } else {
+            System.out.println("You did not enter a number between " + min + " and " + max + ". Try again.");
+            return getDouble(min, max);
+        }
     }
 
     public double getDouble(){
-        System.out.println("Enter a number: (decimals allowed):");
-        return scanner.nextDouble();
+        System.out.println("Enter a number (decimals allowed):");
+        String userInput = getString();
+        try {
+            Double.valueOf(userInput);
+        } catch (NumberFormatException e) {
+            System.out.println("You did not enter a valid number. Please try again.");
+            return getDouble();
+        }
+        Double userNum = Double.parseDouble(userInput);
+        return userNum;
     }
 
     //Overloading to have custom prompt
